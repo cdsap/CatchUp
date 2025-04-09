@@ -50,7 +50,7 @@ pluginManagement {
     // MavenLocal, used when consuming a locally-installed artifact
     if (hasProperty("catchup.config.enableMavenLocal")) {
     }
-      mavenLocal()
+    //  mavenLocal()
 
     // Maven central
     mavenCentral()
@@ -231,20 +231,8 @@ if (focusDisabled || useProjectIsolation) {
 }
 
 develocity {
-  buildScan {
-    publishing {
-      onlyIf { true }
-      termsOfUseAgree = "yes"
-      termsOfUseUrl = "https://gradle.com/terms-of-service"
-    }
-
-    tag(if (System.getenv("CI").isNullOrBlank()) "Local" else "CI")
-    obfuscation {
-      username { "redacted" }
-      hostname { "redacted" }
-      ipAddresses { addresses -> addresses.map { _ -> "0.0.0.0" } }
-    }
-  }
+    server = "https://ge.solutions-team.gradle.com/"
+    allowUntrustedServer = true
 }
 
 rootProject.name = "CatchUp"
