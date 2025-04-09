@@ -162,8 +162,9 @@ dependencyResolutionManagement {
 
     // MavenLocal, used when consuming a locally-installed artifact
     if (hasProperty("catchup.config.enableMavenLocal")) {
+        mavenLocal()
+
     }
-    mavenLocal()
 
     mavenCentral()
 
@@ -233,6 +234,9 @@ if (focusDisabled || useProjectIsolation) {
 develocity {
     server = "https://ge.solutions-team.gradle.com/"
     allowUntrustedServer = true
+    buildScan {
+        uploadInBackground.set(false)
+    }
 }
 
 rootProject.name = "CatchUp"
