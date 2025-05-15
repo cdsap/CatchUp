@@ -38,6 +38,13 @@ plugins {
   alias(libs.plugins.sqldelight) apply false
   alias(libs.plugins.dependencyAnalysis) apply false
   alias(libs.plugins.kotlin.plugin.compose) apply false
+    id ("io.github.cdsap.kotlinprocess") version "0.1.7"
+    id ("io.github.cdsap.gradleprocess") version "0.1.3"
+    id ("io.github.cdsap.gcreport") version "0.1.0"
+}
+
+gcReport {
+    logs = listOf("gradle_gc.log","kotlin_gc.log")
 }
 
 buildscript {
