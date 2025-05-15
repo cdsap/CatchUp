@@ -229,21 +229,14 @@ if (focusDisabled || useProjectIsolation) {
 }
 
 develocity {
-  buildScan {
-    publishing {
-      onlyIf { true }
-      termsOfUseAgree = "yes"
-      termsOfUseUrl = "https://gradle.com/terms-of-service"
+    server = "https://ge.solutions-team.gradle.com/"
+    allowUntrustedServer = true
+    buildScan {
+        uploadInBackground.set(false)
+        publishing { true }
     }
-
-    tag(if (System.getenv("CI").isNullOrBlank()) "Local" else "CI")
-    obfuscation {
-      username { "redacted" }
-      hostname { "redacted" }
-      ipAddresses { addresses -> addresses.map { _ -> "0.0.0.0" } }
-    }
-  }
 }
+
 
 rootProject.name = "CatchUp"
 
