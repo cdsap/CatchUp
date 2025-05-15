@@ -38,6 +38,9 @@ plugins {
   alias(libs.plugins.dependencyAnalysis) apply false
   alias(libs.plugins.kotlin.plugin.compose) apply false
   alias(libs.plugins.metro) apply false
+    id ("io.github.cdsap.kotlinprocess") version "0.1.7"
+    id ("io.github.cdsap.gradleprocess") version "0.1.3"
+    id ("io.github.cdsap.gcreport") version "0.1.0"
 }
 
 buildscript {
@@ -72,6 +75,9 @@ skippy {
       "config/lint/lint.xml",
     )
   }
+}
+gcReport {
+    logs = listOf("gradle_gc.log","kotlin_gc.log")
 }
 
 if (!useProjectIsolation) {
